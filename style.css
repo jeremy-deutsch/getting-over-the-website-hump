@@ -1,0 +1,345 @@
+/* CSS reset begins here */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* CSS reset ends here */
+
+:root {
+  font-family: "Josefin Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: white;
+
+  --single-header-font-size: 42px;
+  --single-subheader-font-size: 26px;
+}
+
+:root:has(.slideshow-mode-toggle input:checked) {
+  scroll-snap-type: y mandatory;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --single-header-font-size: 60px;
+    --single-subheader-font-size: 40px;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.slideshow-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+:fullscreen .slideshow-mode-toggle {
+  display: none;
+}
+
+.slide {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  scroll-snap-align: center;
+}
+
+header,
+section:not(.blank-canvas-section) {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  position: relative;
+  z-index: 6;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-header-section {
+  justify-content: center;
+}
+
+:root:has(.slideshow-mode-toggle input:not(:checked)) .single-header-section {
+  height: unset;
+  max-height: 100vh;
+  padding: 40px 0;
+}
+
+.single-header-section h2 {
+  font-size: var(--single-header-font-size);
+  text-align: center;
+  padding: 0 8px;
+}
+
+.single-header-section h3 {
+  font-size: var(--single-subheader-font-size);
+  text-align: center;
+}
+
+.blank-canvas-section {
+  background-color: transparent;
+}
+
+.blank-canvas-text {
+  position: fixed;
+  z-index: 3;
+  color: black;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-size: var(--single-header-font-size);
+  text-align: center;
+}
+
+.express-yourself {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: url("green_cursor.png"), auto;
+}
+
+.express-yourself:before {
+  content: "";
+  background-image: url("teddy_dance.webp");
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.4;
+  background-size: 150px;
+}
+
+.express-yourself h2 {
+  font-family: "Rock Salt";
+  text-shadow: 4px 4px 4px black;
+  font-size: var(--single-header-font-size);
+}
+
+.sell-things {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 30px 1fr;
+  place-items: center;
+}
+
+@media (min-width: 900px) {
+  .sell-things {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sell-things h2 {
+  grid-row: 2;
+  grid-column: 1;
+  text-align: center;
+
+  font-size: 32px;
+  line-height: 34px;
+}
+
+@media (min-width: 900px) {
+  .sell-things h2 {
+    grid-column: 1 / span 2;
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+
+.item-for-sale {
+  border: 1px solid white;
+  border-radius: 16px;
+  padding: 16px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.item-for-sale.desktop-only {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .item-for-sale {
+    width: 400px;
+    height: 350px;
+  }
+
+  .item-for-sale.desktop-only {
+    display: flex;
+  }
+}
+
+.item-for-sale img {
+  object-fit: contain;
+  max-height: 230px;
+}
+
+.item-for-sale figcaption {
+  font-size: 20px;
+  padding-top: 6px;
+}
+
+.buy-now {
+  font-size: 16px;
+}
+
+@media (min-width: 900px) {
+  .item-for-sale figcaption {
+    font-size: 26px;
+    padding-top: 12px;
+  }
+
+  .buy-now {
+    font-size: 20px;
+  }
+}
+
+.communicate {
+  padding-left: 10%;
+  padding-right: 15%;
+  padding-top: 14px;
+  align-items: start;
+}
+
+.communicate h2 {
+  font-size: 40px;
+  line-height: 46px;
+  position: relative;
+}
+
+.communicate h2::after {
+  content: "";
+  background-color: #635b02;
+  width: 102%;
+  height: 15px;
+  position: absolute;
+  bottom: 2px;
+  left: -1%;
+  z-index: -1;
+}
+
+@media (min-width: 900px) {
+  .communicate {
+    padding-left: 20%;
+    padding-right: 30%;
+    padding-top: 30px;
+  }
+
+  .communicate h2 {
+    font-size: 50px;
+  }
+
+  .communicate h2::after {
+    bottom: -1;
+    height: 18px;
+  }
+}
+
+.essay {
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.in-this-essay {
+  font-size: 26px;
+}
+
+.cupcake-ipsum-link {
+  padding-top: 12px;
+  padding-bottom: 20px;
+  align-self: center;
+}
+
+.sachertorte {
+  height: 300px;
+  object-fit: contain;
+}
+
+.website-image {
+  justify-content: center;
+}
+
+.google-fonts-logo {
+  display: inline;
+  position: relative;
+}
+
+.google-fonts-logo img {
+  display: inline;
+  height: 1.3em;
+  vertical-align: text-bottom;
+}
