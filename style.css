@@ -166,12 +166,12 @@ section {
   justify-content: center;
   align-items: center;
 
-  cursor: url("green_cursor.png"), auto;
+  cursor: url("public/green_cursor.png"), auto;
 }
 
 .express-yourself:before {
   content: "";
-  background-image: url("teddy_dance.webp");
+  background-image: url("public/teddy_dance.webp");
   position: absolute;
   height: 100%;
   width: 100%;
@@ -342,4 +342,17 @@ section {
   display: inline;
   height: 1.3em;
   vertical-align: text-bottom;
+}
+
+.qr-code {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .qr-code {
+    display: block;
+    height: 350px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
 }
